@@ -55,7 +55,7 @@ bookRouter.post("/", (req, res) => {
 bookRouter.put("/:id", (req, res) => {
     const id = req.params.id
     const book = req.body
-    const index = books.find(book => books.id == id)
+    const index = books.findIndex(book => book.id == id)
 
     if (index === -1) {
         res.status(404).send("Book not found")
@@ -67,7 +67,7 @@ bookRouter.put("/:id", (req, res) => {
 
 bookRouter.delete("/:id", (req, res) => {
     const id = req.params.id
-    const index = books.find(book => books.id == id)
+    const index = books.findIndex(book => book.id == id)
 
     if (index === -1) {
         res.status(404).send("Book not found")
